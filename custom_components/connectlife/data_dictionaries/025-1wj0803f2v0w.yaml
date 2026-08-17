@@ -1,11 +1,12 @@
 # Washing machine, feature code 1wj0803f2v0w.
-# Model-specific override. Program IDs are model-specific, so expose
-# Selected_program_ID as a select with the program names observed on this
-# machine. Reads and writes use the raw ID on the same property (confirmed
-# working via the set_value service), so no command/adjust is needed.
+# The model name is WF5I8043BWF but Home Assistant shows the cloud's device_feature_name "WF5i8014-FVW001" as the model instead.
+# Program names from the model's user manual.
+# The base 025.yaml already covers every property this machine exposes, so this
+# override only turns Selected_program_ID into a select. Reads and writes both
+# use the raw program ID on the same property (verified on the device), so no
+# command/adjust is needed.
 properties:
   - property: Selected_program_ID
-    icon: mdi:tshirt-crew
     select:
       options:
         4: refresh
@@ -19,7 +20,7 @@ properties:
         15: allergy_care
         16: baby_care
         18: sportswear
-        19: duvet
+        19: down
         20: rinse_spin
         42: auto
         44: bedding
